@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: travel-frontend
+  labels:
+    app: travel-frontend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: travel-frontend
+  template:
+    metadata:
+      labels:
+        app: travel-frontend
+    spec:
+      containers:
+      - name: travel-frontend
+        image: gaurav1202/travel-frontend:latest
+        ports:
+        - containerPort: 80
